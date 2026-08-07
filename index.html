@@ -1,74 +1,926 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
+
+ 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Qweue Productions | Maintenance</title>
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Qweue Productions | Creative Production
+</title>
+
+
+<!-- =========================
+     STYLES
+========================== -->
 
 <style>
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0b1118;
-    color: white;
-}
 
-.box {
-    max-width: 650px;
-    padding: 45px;
-}
+    /* ---------- GENERAL ---------- */
 
-h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-.status {
-    color: #00aaff;
-    font-size: 22px;
-    font-weight: bold;
-}
+    html {
+        scroll-behavior: smooth;
+    }
 
-p {
-    color: #cccccc;
-    line-height: 1.6;
-}
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #080b10;
+        color: #ffffff;
+    }
+
+    a {
+        color: inherit;
+    }
+
+
+    /* ---------- NAVIGATION ---------- */
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        padding: 14px;
+
+        background: rgba(8, 11, 16, 0.95);
+        border-bottom: 1px solid #27313d;
+
+        backdrop-filter: blur(10px);
+    }
+
+    nav a {
+        padding: 10px 16px;
+
+        color: #c7cdd4;
+        text-decoration: none;
+
+        border-radius: 8px;
+
+        transition: 0.2s;
+    }
+
+    nav a:hover {
+        background: #151d27;
+        color: #ffffff;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        min-height: 88vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 60px 20px;
+
+        background:
+            radial-gradient(
+                circle at center,
+                #182331 0%,
+                #080b10 65%
+            );
+    }
+
+    .logo {
+        width: 150px;
+        height: 150px;
+
+        object-fit: contain;
+
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-12px);
+        }
+
+    }
+
+    .hero h1 {
+        margin: 25px 0 10px;
+
+        font-size: clamp(42px, 8vw, 72px);
+
+        letter-spacing: 3px;
+    }
+
+    .hero h1 span {
+        color: #00aaff;
+    }
+
+    .tagline {
+        max-width: 700px;
+
+        color: #b9c2cc;
+
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+
+    /* ---------- BUTTONS ---------- */
+
+    .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 14px;
+
+        margin-top: 25px;
+    }
+
+    .button {
+        display: inline-block;
+
+        padding: 13px 22px;
+
+        background: #0078ff;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+        font-weight: bold;
+
+        border-radius: 9px;
+
+        transition: 0.2s;
+    }
+
+    .button:hover {
+        background: #00aaff;
+
+        transform: translateY(-2px);
+    }
+
+    .button.secondary {
+        background: #151d27;
+
+        border: 1px solid #34404d;
+    }
+
+
+    /* ---------- PAGE CONTAINER ---------- */
+
+    .container {
+        max-width: 1150px;
+
+        margin: auto;
+
+        padding: 35px 25px;
+    }
+
+    section {
+        margin: 85px 0;
+    }
+
+
+    /* ---------- HEADINGS ---------- */
+
+    .section-title {
+        margin-bottom: 30px;
+
+        color: #00aaff;
+
+        font-size: 34px;
+    }
+
+    .section-text {
+        max-width: 800px;
+
+        color: #b9c2cc;
+
+        line-height: 1.7;
+    }
+
+
+    /* ---------- CARDS ---------- */
+
+    .cards {
+        display: grid;
+
+        grid-template-columns:
+            repeat(auto-fit, minmax(240px, 1fr));
+
+        gap: 20px;
+    }
+
+    .card {
+        padding: 25px;
+
+        background: #111821;
+
+        border: 1px solid #202c38;
+
+        border-radius: 15px;
+
+        transition: 0.25s;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+
+        border-color: #0078ff;
+
+        background: #141e29;
+    }
+
+    .card h3 {
+        margin-top: 0;
+
+        font-size: 21px;
+    }
+
+    .card p {
+        color: #b9c2cc;
+
+        line-height: 1.6;
+    }
+
+
+    /* ---------- PROJECT STATUS ---------- */
+
+    .status {
+        display: inline-block;
+
+        margin-top: 12px;
+
+        padding: 7px 12px;
+
+        background: #182331;
+
+        color: #00aaff;
+
+        border-radius: 20px;
+
+        font-size: 12px;
+        font-weight: bold;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* ---------- STATUS BOARD ---------- */
+
+    .status-board {
+        display: grid;
+
+        grid-template-columns:
+            repeat(auto-fit, minmax(210px, 1fr));
+
+        gap: 15px;
+    }
+
+    .status-item {
+        padding: 20px;
+
+        background: #10161e;
+
+        border-left: 4px solid #00aaff;
+
+        border-radius: 10px;
+    }
+
+    .status-item strong {
+        display: block;
+
+        margin-bottom: 8px;
+    }
+
+    .status-item span {
+        color: #9da8b4;
+    }
+
+
+    /* ---------- PARTNERS ---------- */
+
+    .partner {
+        padding: 35px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #111821,
+                #182331
+            );
+
+        border: 1px solid #293745;
+
+        border-radius: 18px;
+    }
+
+    .partner h3 {
+        font-size: 27px;
+    }
+
+    .partner p {
+        color: #c5cdd6;
+
+        line-height: 1.7;
+    }
+
+    .partner-link {
+        color: #00aaff;
+
+        text-decoration: none;
+
+        font-weight: bold;
+    }
+
+    .partner-link:hover {
+        text-decoration: underline;
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact {
+        padding: 45px 25px;
+
+        text-align: center;
+
+        background: #111821;
+
+        border: 1px solid #263341;
+
+        border-radius: 18px;
+    }
+
+    .contact p {
+        color: #b9c2cc;
+
+        line-height: 1.6;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 45px 20px;
+
+        text-align: center;
+
+        color: #7f8994;
+
+        border-top: 1px solid #202a35;
+    }
+
+    footer a {
+        color: #00aaff;
+
+        text-decoration: none;
+
+        font-weight: bold;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 600px) {
+
+        nav a {
+            padding: 8px 11px;
+
+            font-size: 14px;
+        }
+
+        .hero {
+            min-height: 80vh;
+        }
+
+        .hero h1 {
+            letter-spacing: 1px;
+        }
+
+        .container {
+            padding: 25px 18px;
+        }
+
+    }
+
 </style>
+ 
 
 </head>
 
 <body>
 
-<div class="box">
+ 
+<!-- =========================
+     NAVIGATION
+========================== -->
 
-```
-<h1>QWEUE PRODUCTIONS</h1>
+<nav>
 
-<div class="status">
-    🛠️ Website Under Major Overhaul
-</div>
+    <a href="#home">Home</a>
 
-<p>
-    The Qweue Productions website is currently being
-    redesigned and upgraded.
-</p>
+    <a href="#about">About</a>
 
-<p>
-    Please check back soon for the new website.
-</p>
+    <a href="#services">Services</a>
 
-<p>
-    Website development by TechZMaxz
-</p>
-```
+    <a href="#projects">Projects</a>
 
-</div>
+    <a href="#status">Status</a>
+
+    <a href="#partners">Partners</a>
+
+    <a href="#contact">Contact</a>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<header
+    class="hero"
+    id="home"
+>
+
+    <img
+        src="LOGO.png"
+        class="logo"
+        alt="Qweue Productions Logo"
+    >
+
+    <h1>
+        QWEUE <span>PRODUCTIONS</span>
+    </h1>
+
+    <p class="tagline">
+
+        Creative production, unusual ideas,
+        original projects, and everything
+        completely QWEUE.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+        <a
+            href="#projects"
+            class="button"
+        >
+            Explore Projects
+        </a>
+
+
+        <a
+            href="#about"
+            class="button secondary"
+        >
+            About Qweue
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+            🏢 About Qweue Productions
+        </h2>
+
+        <p class="section-text">
+
+            Welcome to
+            <strong>Qweue Productions</strong> —
+            a creative production company focused
+            on developing projects, ideas, and
+            original content.
+
+        </p>
+
+        <p class="section-text">
+
+            From unusual ideas to completely
+            QWEUE projects, we're always working
+            on something new.
+
+        </p>
+
+        <p class="section-text">
+
+            This is the official online home of
+            Qweue Productions.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section id="services">
+
+        <h2 class="section-title">
+            🛠️ What We Do
+        </h2>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>
+                    🎬 Production
+                </h3>
+
+                <p>
+
+                    Creative production and project
+                    development from concept to
+                    finished project.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    💡 Creative Ideas
+                </h3>
+
+                <p>
+
+                    Turning strange, interesting,
+                    and original ideas into real
+                    projects.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🛠️ Project Development
+                </h3>
+
+                <p>
+
+                    Planning, developing, and
+                    building new Qweue Productions
+                    projects.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+        <h2 class="section-title">
+            🚀 Projects
+        </h2>
+
+        <p class="section-text">
+
+            Here's what Qweue Productions is
+            currently working on.
+
+        </p>
+
+        <br>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>
+                    🛏️ Qweue Pillow
+                </h3>
+
+                <p>
+
+                    A Qweue Productions pillow
+                    project currently being
+                    developed.
+
+                </p>
+
+                <span class="status">
+                    WORK IN PROGRESS
+                </span>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🧻 QWEUE Toilet Paper
+                </h3>
+
+                <p>
+
+                    An upcoming QWEUE project.
+                    Details are currently being
+                    developed.
+
+                </p>
+
+                <span class="status">
+                    WORK IN PROGRESS
+                </span>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🚀 More Coming Soon
+                </h3>
+
+                <p>
+
+                    Qweue Productions is always
+                    working on something new —
+                    especially QWEUE.
+
+                </p>
+
+                <span class="status">
+                    QWEUE IN PROGRESS
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         STATUS
+    ========================== -->
+
+    <section id="status">
+
+        <h2 class="section-title">
+            📊 Production Status
+        </h2>
+
+
+        <div class="status-board">
+
+
+            <div class="status-item">
+
+                <strong>
+                    🛏️ Qweue Pillow
+                </strong>
+
+                <span>
+                    Development
+                </span>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <strong>
+                    🧻 QWEUE Toilet Paper
+                </strong>
+
+                <span>
+                    Development
+                </span>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <strong>
+                    💡 New Ideas
+                </strong>
+
+                <span>
+                    Always happening
+                </span>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <strong>
+                    🚀 Future Projects
+                </strong>
+
+                <span>
+                    Coming soon
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PARTNERS
+    ========================== -->
+
+    <section id="partners">
+
+        <h2 class="section-title">
+            🤝 Partners
+        </h2>
+
+
+        <div class="partner">
+
+            <h3>
+                💻
+                <a
+                    href="https://techzmaxz.github.io/Techzmaxz/"
+                    class="partner-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    TechZMaxz
+                </a>
+            </h3>
+
+
+            <p>
+
+                Qweue Productions partners with
+
+                <a
+                    href="https://techzmaxz.github.io/Techzmaxz/"
+                    class="partner-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    TechZMaxz
+                </a>
+
+                for website development
+                and technical services.
+
+            </p>
+
+
+            <!-- TECHZMAXZ BUTTON -->
+
+            <a
+                href="https://techzmaxz.github.io/Techzmaxz/"
+                class="button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Visit TechZMaxz
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="contact">
+
+            <h2 class="section-title">
+                📧 Contact Qweue Productions
+            </h2>
+
+            <p>
+
+                Interested in Qweue Productions,
+                our projects, or future
+                collaborations?
+
+            </p>
+
+            <p>
+
+                Contact information coming soon.
+
+            </p>
+
+            <span class="status">
+                CONTACT SYSTEM COMING SOON
+            </span>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    © 2026
+    <strong>Qweue Productions</strong>
+
+    <br><br>
+
+    Creative Production • Projects • Innovation
+
+    <br><br>
+
+    Website developed by
+
+    <a
+        href="https://techzmaxz.github.io/Techzmaxz/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        TechZMaxz
+    </a>
+
+</footer>
+ 
 
 </body>
+
 </html>
