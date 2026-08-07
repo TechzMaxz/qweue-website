@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Qweue Productions</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08090d;
+    color: #ffffff;
+}
+
+/* HEADER */
+
+header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(circle at center, #25283a 0%, #0d0f16 45%, #08090d 100%);
+}
+
+.logo {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(42px, 8vw, 80px);
+    letter-spacing: 4px;
+}
+
+.tagline {
+    margin-top: 15px;
+    color: #bfc3d4;
+    font-size: 20px;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 16px;
+    background: rgba(8, 9, 13, 0.95);
+    border-bottom: 1px solid #292d3b;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #8f9cff;
+}
+
+/* MAIN */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 25px;
+}
+
+section {
+    margin-bottom: 70px;
+}
+
+.section-title {
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin-top: 10px;
+    background: #7c86ff;
+    border-radius: 5px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 25px;
+    background: #12141c;
+    border: 1px solid #292d3b;
+    border-radius: 15px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #7c86ff;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 13px 25px;
+    border-radius: 8px;
+    background: #6873ff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #8790ff;
+}
+
+/* PARTNERSHIP */
+
+.partner {
+    padding: 30px;
+    background: linear-gradient(135deg, #151827, #101118);
+    border: 1px solid #303448;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.partner strong {
+    color: #8f9cff;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: #050609;
+    color: #777b8a;
+    border-top: 1px solid #292d3b;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header id="home">
+
+```
+<img src="logo.png"
+     class="logo"
+     alt="Qweue Productions Logo">
+
+<h1>QWEUE PRODUCTIONS</h1>
+
+<p class="tagline">
+    Creative Production • Projects • Innovation
+</p>
+
+<a href="#about" class="button">
+    Explore Qweue Productions
+</a>
+```
+
+</header>
+
+<nav>
+
+```
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#services">Services</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#partners">Partners</a>
+
+<a href="#contact">Contact</a>
+```
+
+</nav>
+
+<main class="container">
+
+<section id="about">
+
+```
+<h2 class="section-title">
+    About Qweue Productions
+</h2>
+
+<p>
+    Welcome to Qweue Productions — a creative production company
+    focused on developing projects, ideas, and original content.
+</p>
+
+<p>
+    This website is the official online home of Qweue Productions.
+</p>
+```
+
+</section>
+
+<section id="services">
+
+```
+<h2 class="section-title">
+    Services
+</h2>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>🎬 Production</h3>
+        <p>
+            Creative production and project development.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>💡 Creative Projects</h3>
+        <p>
+            Turning ideas into original projects and experiences.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🛠️ Project Development</h3>
+        <p>
+            Planning, building, and developing new projects.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<section id="projects">
+
+```
+<h2 class="section-title">
+    Projects
+</h2>
+
+<div class="cards">
+
+    <div class="card">
+
+        <h3>Qweue pillow</h3>
+
+        <p>
+           Work in Proggress
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>QWEUE toilet paper</h3>
+
+        <p>
+            Work in Proggress
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>More Coming Soon</h3>
+
+        <p>
+            Qweue Productions is always working on something new, Especially QWEUE!
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<section id="partners">
+
+```
+<h2 class="section-title">
+    Partners
+</h2>
+
+<div class="partner">
+
+    <h3>🤝 TechZMaxz</h3>
+
+    <p>
+        Qweue Productions partners with
+        <strong>TechZMaxz</strong> for website development
+        and technical services.
+    </p>
+
+</div>
+```
+
+</section>
+
+<section id="contact">
+
+```
+<h2 class="section-title">
+    Contact
+</h2>
+
+<div class="card">
+
+    <p>
+        Interested in Qweue Productions?
+    </p>
+
+    <p>
+        Contact information coming soon.
+    </p>
+
+</div>
+```
+
+</section>
+
+</main>
+
+<footer>
+
+```
+© 2026 Qweue Productions
+
+<br><br>
+
+Website developed by TechZMaxz
+```
+
+</footer>
+
+</body>
+</html>
